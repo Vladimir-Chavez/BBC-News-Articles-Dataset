@@ -15,7 +15,7 @@ var DataCurator;
         static main() {
             // set raw data path
             try {
-                Program.DataDir = path.join(__dirname, "../../bbc_raw");
+                Program.DataDir = path.join(__dirname, "../BBC-News-Articles");
             }
             catch (e) {
                 console.log(e.message);
@@ -57,7 +57,7 @@ var DataCurator;
                             catch (e) { }
                         }
                         let header = true;
-                        const csvPath = path.join(dir, "js_out.csv");
+                        const csvPath = path.join(dir, "data.csv");
                         // write headers to file
                         fs.writeFileSync(csvPath, "category\tfilename\ttitle\tcontent", { encoding: "utf8", flag: "w" });
                         // write data

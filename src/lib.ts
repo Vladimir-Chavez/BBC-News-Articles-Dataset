@@ -12,7 +12,7 @@ export namespace DataCurator{
         static main(){
             // set raw data path
             try {
-                Program.DataDir = path.join(__dirname, "../../bbc_raw");
+                Program.DataDir = path.join(__dirname, "../BBC-News-Articles");
             } catch(e){
                 console.log(e.message);
             }
@@ -53,7 +53,7 @@ export namespace DataCurator{
                             } catch(e){}
                         }
                         let header = true;
-                        const csvPath = path.join(dir, "js_out.csv");
+                        const csvPath = path.join(dir, "data.csv");
                         // write headers to file
                         fs.writeFileSync(csvPath
                             , "category\tfilename\ttitle\tcontent" 
@@ -82,7 +82,7 @@ export namespace DataCurator{
         static set DataDir(val:string|undefined){
             if (val){
                 if (fs.existsSync(val))
-                Program._dataDir = val;
+                    Program._dataDir = val;
             else 
                 throw new Error(
                     `${Program.name}.DataDir - ${val} does not exist.`);
